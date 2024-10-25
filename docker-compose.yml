@@ -4,6 +4,9 @@ services:
     build: 
       context: ./frontend
       dockerfile: Dockerfile
+      args:
+        STUDENT_NAME: "Reynard"
+        STUDENT_NIM: "00000067065"
     ports:
       - "8080:80"
     networks:
