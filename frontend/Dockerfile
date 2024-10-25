@@ -8,11 +8,11 @@ COPY package*.json ./
 
 # Install dependencies
 
-RUN pnpm install
+RUN npm install
 
 COPY . .
 
-RUN pnpm run build
+RUN npm run build
 
 FROM nginx:alpine AS production-stage
 
