@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  frontend:
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    networks:
+      - app_network
+
+  backend:
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000"
+    environment:
+      - app_network
+    environment:
+      - NAME=Reynard
+
+networks:
+  app_network:
+    driver: bridge

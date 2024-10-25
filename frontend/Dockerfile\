@@ -1,0 +1,23 @@
+# Menggunakan Node.js sebagai base image
+FROM node:20
+
+# Set working directory
+WORKDIR /app
+
+COPY . .
+
+# Install dependencies
+RUN npm install -g pnpm
+
+RUN pnpm install
+
+RUN pnpm run build
+
+
+# Copy seluruh file dari host ke dalam container
+
+# Expose port 80 untuk akses aplikasi
+EXPOSE 5173
+
+# Command untuk menjalankan aplikasi
+CMD ["pnpm", "dev", "--host", "0.0.0.0"]
